@@ -22,10 +22,10 @@ def searching_gif(api_key, search_key, limit):
                 gif_url = gif_data['images']['original']['url']
                 print(gif_url)
         else:
-            print(f"HTTP Error: {response.status_code}")
+            print(f"Error: {response.status_code}")
 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        print(f"{str(e)}")
 
 
 api_key = "bR7pNRm86DwAi21JPXMafZZvnDZz2TW9"
