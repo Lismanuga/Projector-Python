@@ -28,6 +28,6 @@ def searching_gif(api_key, search_key, limit):
         print(f"{str(e)}")
 
 
-api_key = "bR7pNRm86DwAi21JPXMafZZvnDZz2TW9"
+api_key = "YOUR_API"
 search_gif = input("Введіть слово для пошуку: ")
 searching_gif(api_key, search_gif, 1)
