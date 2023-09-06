@@ -31,7 +31,8 @@ def searching_gif(api_key, search_key, limit=1):
         return str(e)
 
 
-bot = telebot.TeleBot("YOUR_BOT_API")
+with open('bot_key.txt', 'r') as file:
+    bot = telebot.TeleBot(file.read())
 
 
 @bot.message_handler(commands=['start'])
@@ -39,7 +40,8 @@ def handle_start(message):
     bot.send_message(message.chat.id, "Enter key word:")
 
 
-api_key = 'YOUR_API'
+with open('api_key.txt', 'r') as file:
+    api_key = file.read()
 
 
 @bot.message_handler(func=lambda message: True)
