@@ -1,5 +1,4 @@
 
-
 import requests
 import json
 
@@ -28,6 +27,7 @@ def searching_gif(api_key, search_key, limit):
         print(f"{str(e)}")
 
 
-api_key = "YOUR_API"
+with open('api_key.txt', 'r') as file:
+    api_key = file.read()
 search_gif = input("Введіть слово для пошуку: ")
 searching_gif(api_key, search_gif, 1)
