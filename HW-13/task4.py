@@ -1,15 +1,15 @@
 
 
 def cached_func(func):
-    cache = {}
+    __cached__ = {}
 
     def wrapper(*args):
-        if args in cache:
+        if args in __cached__:
             print('Return cached value')
-            return cache[args]
+            return __cached__[args]
         result = func(*args)
-        cache[args] = result
-        print('Return casual value')
+        __cached__[args] = result
+        print('Return casual')
         return result
     return wrapper
 
