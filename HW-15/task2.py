@@ -16,7 +16,7 @@ class FastFood(Restaurant):
         if quantity > self.menu[dish]['quantity']:
             return 'Requested quantity not available'
         total_cost = quantity * self.menu[dish]['price']
-        self.menu[dish]['quantity'] -= quantity  # Update the available quantity
+        self.menu[dish]['quantity'] -= quantity
         return total_cost
 
 
