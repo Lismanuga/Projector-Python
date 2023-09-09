@@ -1,25 +1,25 @@
 import time
 
 
-def limiter(func):
-    call_times = []
+def rate_limiter(max_calls):
+    def decorator(func):
+        call_times = []
 
-    def wrapper(*args, **kwargs):
-        limit = 3
-        current_time = time.time()
+        def wrapper(*args, **kwargs):
+            current_time = time.time()
+            call_times[:] = [t for t in call_times if current_time - t <= 60]
+            if len(call_times) < max_calls:
+                call_times.append(current_time)
+                return func(*args, **kwargs)
+            else:
+                raise Exception('Too many calls, wait a little bit')
 
-        call_times[:] = [t for t in call_times if current_time - t <= 60]
+        return wrapper
 
-        if len(call_times) < limit:
-            call_times.append(current_time)
-            return func(*args, **kwargs)
-        else:
-            raise Exception('Too many calls, wait a little bit')
-
-    return wrapper
+    return decorator
 
 
-@limiter
+@rate_limiter(max_calls=3)
 def add(a, b):
     return a + b
 
