@@ -11,6 +11,8 @@ class Car:
     def brake(self):
         if self.speed >= 5:
             self.speed -= 5
+        else:
+            self.speed = 0
 
     def display_speed(self):
         return self.speed
