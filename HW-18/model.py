@@ -100,6 +100,8 @@ session.add_all(
 
 session.commit()
 
+
+# task 2
 english_visitors = session.query(Student)\
     .join(Student_Subject, Student_Subject.student_id == Student.id)\
     .join(Subject, Student_Subject.subject_id == Subject.id)\
