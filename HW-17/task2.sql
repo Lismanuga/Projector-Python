@@ -16,8 +16,9 @@ INSERT INTO reservations (reservator_id, reserved_room_id, time, is_paid) VALUES
   (2, 3, '2023-10-26', true),
   (2, 4, '2023-10-27', true);
 
-INSERT INTO reviews (reviewer_id, room_id, rate) VALUES
-  (1, 1, 5),
-  (2, 2, 9),
-  (2, 3, 2),
-  (2, 4, 6);
+INSERT INTO reviews (reservation_id, rate)
+VALUES
+  (1, 5),
+  (2, 4),
+  (3, 6),
+  (4, 9);

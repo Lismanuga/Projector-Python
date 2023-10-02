@@ -1,15 +1,17 @@
 SELECT
-  rooms.host_id AS host_id,
-  users.name AS host_name,
-  AVG(CAST(reviews.rate AS NUMERIC)) AS average_rating
+    u.id AS host_id,
+    u.name AS hostname,
+    AVG(rev.rate) AS average_rating
 FROM
-  rooms
-LEFT JOIN
-  users ON rooms.host_id = users.id
-LEFT JOIN
-  reviews ON rooms.id = reviews.room_id
+    users u
+JOIN
+    rooms r ON u.id = r.host_id
+JOIN
+    reservations res ON r.id = res.reserved_room_id
+JOIN
+    reviews rev ON res.id = rev.reservation_id
 GROUP BY
-  rooms.host_id, users.name
+    u.id, u.name
 ORDER BY
-  average_rating DESC
+    AVG(rev.rate) DESC
 LIMIT 1;

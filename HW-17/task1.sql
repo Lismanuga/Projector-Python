@@ -37,10 +37,8 @@ CREATE TABLE reservations (
 
 CREATE TABLE reviews (
     id serial PRIMARY KEY,
-    reviewer_id INT NOT NULL,
-    room_id INT NOT NULL,
+    reservation_id INT NOT NULL,
     rate INT NOT NULL,
     
-    FOREIGN KEY (reviewer_id) REFERENCES users (id),
-    FOREIGN KEY (room_id) REFERENCES rooms (id)
+    FOREIGN KEY (reservation_id) REFERENCES reservations (id)
 );
