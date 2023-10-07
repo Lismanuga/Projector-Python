@@ -16,7 +16,7 @@ CREATE TABLE rooms (
     id serial PRIMARY KEY,
     host_id INT NOT NULL,
     amount_of_residents INT NOT NULL,
-    price INT NOT NULL,
+    price DECIMAL NOT NULL,
     refregirator BOOLEAN NOT NULL,
     ac BOOLEAN NOT NULL,
 
