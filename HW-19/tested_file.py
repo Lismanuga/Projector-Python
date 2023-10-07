@@ -65,7 +65,7 @@ class Bank:
             account.deposit(amount)
 
     def update_accounts(self):
-        # print('it`s print')
+        print('it`s print')
         for account in self.accounts:
             if isinstance(account, SavingsAccount):
                 account.add_interest()
