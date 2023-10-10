@@ -32,8 +32,8 @@ class TestBank(unittest.TestCase):
         self.assertTrue(savings_account.get_balance() > 1000)
         mock_print.assert_called()
 
-        # print(mock_stdout.getvalue().strip()) не працює
-        self.assertTrue(mock_stdout.getvalue().strip() == 'it`s print')
+        printed_value = mock_stdout.getvalue().strip()
+        self.assertTrue(printed_value == "it`s print")
 
         __builtins__.print = standart_print
         sys.stdout = standart_stdout
