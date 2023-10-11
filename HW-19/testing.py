@@ -1,4 +1,6 @@
 import unittest
+
+
 from unittest.mock import MagicMock
 from tested_file import Bank, SavingsAccount
 import sys
@@ -20,6 +22,15 @@ class TestBank(unittest.TestCase):
         savings_account = SavingsAccount(1000, "12345", 2)
         bank.open_account(savings_account)
 
+
+        class MockPrint:
+            def __init__(self):
+                self.called = False
+
+            def __call__(self, *args, **kwargs):
+                self.called = True
+
+     
         mock_print = MagicMock()
         standart_print = __builtins__.print
         __builtins__.print = mock_print
@@ -37,6 +48,7 @@ class TestBank(unittest.TestCase):
 
         __builtins__.print = standart_print
         sys.stdout = standart_stdout
+
 
 
 if __name__ == '__main__':
